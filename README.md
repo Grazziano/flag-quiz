@@ -1,46 +1,81 @@
-# Getting Started with Create React App
+# 🌍 Flag Quiz - Guess the Flag Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é um jogo interativo de adivinhar bandeiras, desenvolvido com **ReactJS** e **TypeScript**, e estilizado com **Chakra UI**. O objetivo do jogo é testar seus conhecimentos sobre as bandeiras de diferentes países do mundo, oferecendo uma experiência divertida e educativa.
 
-## Available Scripts
+## 🎮 Funcionalidades
 
-In the project directory, you can run:
+- Apresenta uma bandeira aleatória e oferece três opções de países para adivinhar.
+- Exibe o placar conforme você acerta ou erra as respostas.
+- Feedback visual instantâneo com mensagens amigáveis sobre a resposta correta.
+- Design moderno e responsivo, com layout estilizado usando Chakra UI.
 
-### `npm start`
+## 🛠️ Tecnologias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **ReactJS**: Biblioteca JavaScript para criação de interfaces de usuário.
+- **TypeScript**: Superset de JavaScript com tipagem estática.
+- **Chakra UI**: Biblioteca de componentes de UI para React, proporcionando um design limpo e consistente.
+- **REST API**: Utilizada para buscar informações sobre bandeiras e países.
+  
+## 🚀 Instalação e Execução
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Siga os passos abaixo para executar a aplicação localmente:
 
-### `npm test`
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/Grazziano/flag-quiz.git
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd flag-quiz
+   ```
 
-### `npm run build`
+3. Instale as dependências do projeto:
+   ```bash
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm start
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. Abra [http://localhost:3000](http://localhost:3000) para visualizar no navegador.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📂 Estrutura do Projeto
 
-### `npm run eject`
+```
+guess-the-flag/
+│
+├── public/                # Arquivos públicos
+├── src/                   # Código fonte da aplicação
+│   ├── components/        # Componentes reutilizáveis
+│   ├── utils/             # Funções auxiliares
+│   ├── types/             # Definições de tipos do TypeScript
+│   ├── App.tsx            # Componente principal
+│   └── index.tsx          # Entrada do React
+│
+├── README.md              # Documentação do projeto
+├── package.json           # Dependências e scripts do projeto
+└── tsconfig.json          # Configurações do TypeScript
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🖥️ Demonstração
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![guess-the-flag](./public/images/app.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🤔 Como Jogar
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Clique no botão correspondente ao país que você acha que corresponde à bandeira exibida.
+2. Ao acertar, o placar aumentará em 1 ponto.
+3. Ao errar, você verá a resposta correta, e uma nova bandeira será exibida para continuar jogando.
 
-## Learn More
+## 🌟 Funcionalidades Futuras
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Sistema de níveis de dificuldade (fácil, médio, difícil).
+- Integração com API para mais dados sobre os países.
+- Ranking global para comparação de pontuações entre jogadores.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📝 Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
