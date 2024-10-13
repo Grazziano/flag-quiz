@@ -1,4 +1,13 @@
 import { useEffect, useState } from 'react';
+import {
+  Box,
+  Center,
+  Heading,
+  Stack,
+  Text,
+  useToast,
+  Flex,
+} from '@chakra-ui/react';
 import { fetchCountries } from './utils/fetchCountries';
 import FlagDisplay from './components/FlagDisplay';
 import CountryOptions from './components/CountryOptions';
@@ -9,6 +18,7 @@ function App() {
   const [currentCountry, setCurrentCountry] = useState<Country | null>(null);
   const [options, setOptions] = useState<string[]>([]);
   const [score, setScore] = useState<number>(0);
+  const toast = useToast();
 
   useEffect(() => {
     const loadCountries = async () => {
@@ -39,19 +49,63 @@ function App() {
   const handleGuess = (guess: string) => {
     if (guess === currentCountry?.name) {
       setScore(score + 1);
+      toast({
+        title: 'Correct!',
+        description: `You guessed it right!`,
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      });
     } else {
-      alert(`Incorrect! The correct answer was ${currentCountry?.name}`);
+      toast({
+        title: 'Incorrect!',
+        description: `The correct answer was ${currentCountry?.name}`,
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      });
     }
     generateNewQuestion(countries);
   };
 
   return (
-    <div>
-      <h1>Guess the Flag!</h1>
-      {currentCountry && <FlagDisplay country={currentCountry} />}
-      <CountryOptions options={options} onGuess={handleGuess} />
-      <p>Score: {score}</p>
-    </div>
+    <Center minH="100vh" bgGradient="linear(to-r, blue.50, teal.50)">
+      <Stack
+        spacing={8}
+        p={8}
+        bg="white"
+        boxShadow="2xl"
+        rounded="xl"
+        align="center"
+        w="full"
+        maxW="md"
+      >
+        <Heading as="h1" size="2xl" textAlign="center" color="teal.600">
+          Guess the Flag!
+        </Heading>
+
+        {currentCountry && (
+          <Flex justify="center" w="full">
+            <FlagDisplay country={currentCountry} />
+          </Flex>
+        )}
+
+        <CountryOptions options={options} onGuess={handleGuess} />
+
+        <Box
+          bg="gray.100"
+          p={4}
+          rounded="md"
+          w="full"
+          textAlign="center"
+          shadow="md"
+        >
+          <Text fontSize="lg" fontWeight="bold" color="gray.700">
+            Score: {score}
+          </Text>
+        </Box>
+      </Stack>
+    </Center>
   );
 }
 

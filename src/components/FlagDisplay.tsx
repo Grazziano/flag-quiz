@@ -1,4 +1,5 @@
 import { Country } from '../types/Country';
+import { Box, Image } from '@chakra-ui/react';
 
 interface FlagDisplayProps {
   country: Country;
@@ -6,9 +7,19 @@ interface FlagDisplayProps {
 
 function FlagDisplay({ country }: FlagDisplayProps) {
   return (
-    <div>
-      <img src={country.flag} alt={`Flag of ${country.name}`} width="200" />
-    </div>
+    <Box
+      textAlign="center"
+      border="1px"
+      borderStyle="solid"
+      borderColor="black"
+    >
+      <Image
+        src={country.flag}
+        alt={`Flag of ${country.name}`}
+        width="200px"
+        objectFit="cover"
+      />
+    </Box>
   );
 }
 

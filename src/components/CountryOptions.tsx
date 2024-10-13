@@ -1,3 +1,5 @@
+import { Button, Stack } from '@chakra-ui/react';
+
 interface CountryOptionsProps {
   options: string[];
   onGuess: (country: string) => void;
@@ -5,13 +7,18 @@ interface CountryOptionsProps {
 
 function CountryOptions({ options, onGuess }: CountryOptionsProps) {
   return (
-    <div>
+    <Stack direction={{ base: 'column', sm: 'row' }} spacing={4} align="center">
       {options.map((country) => (
-        <button key={country} onClick={() => onGuess(country)}>
+        <Button
+          key={country}
+          colorScheme="teal"
+          variant="solid"
+          onClick={() => onGuess(country)}
+        >
           {country}
-        </button>
+        </Button>
       ))}
-    </div>
+    </Stack>
   );
 }
 
